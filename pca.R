@@ -1,6 +1,8 @@
 library(tidyverse)
 library(devtools)
 library(ggbiplot)
+library(readxl)
+
 
 pca_data <- read_excel("data/pca_data.xlsx")
 gender <- pca_data$Gender
