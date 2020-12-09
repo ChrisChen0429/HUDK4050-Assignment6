@@ -5,6 +5,19 @@ library(readxl)
 
 ### distance 
 data <- read_csv('./results/student_stat.csv')
+
+pca_data <- read_excel("data/pca_data.xlsx")
+colnames(pca_data) <- c("name",paste('c',as.character(1:9),sep = ""),'gender','hight')
+pca_data$name <-gsub(" ", "", pca_data$name, fixed = TRUE)
+
+a <- merge(as.data.frame(pca_data), as.data.frame(data),by.x = 'name',by.y = 'name')
+
+ggplot(a, aes(x=time,color=gender)) + 
+  geom_histogram(fill="white", alpha=0.5, position="identity",binwidth=30)
+
+
+
+
 data <- as.data.frame(data)
 distance_data <- data[,3:8]
 rownames(distance_data) <- data$name
