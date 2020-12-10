@@ -10,7 +10,7 @@ write_csv(YunzhaoWu,"YunzhaoWu.csv")
 
 TianyuChang <- read_csv("TianyuChang.csv")
 TianyuChang$time <- round(difftime(TianyuChang$time, TianyuChang$time[1],units = 'secs'),3)
-write_csv(TianyuChang,"TianyuChang.csv")
+write_csv(TianyuChang,"TianyuChang1.csv")
 
 
 ZhihaoGuo <- read_csv("ZhihaoGuo.csv")

@@ -1,7 +1,8 @@
 library(tidyverse)
-
 library(VIM)
 library(readxl)
+library(ggpubr)
+library(factoextra)
 
 ### distance 
 data <- read_csv('./results/student_stat.csv')
