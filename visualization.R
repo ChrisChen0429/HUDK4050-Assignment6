@@ -17,14 +17,12 @@ ggplot(a, aes(x=time,color=gender)) +
   geom_histogram(fill="white", alpha=0.5, position="identity",binwidth=30)
 
 
-
-
 data <- as.data.frame(data)
 distance_data <- data[,3:8]
 rownames(distance_data) <- data$name
 distance <- get_dist(distance_data)
 
-pdf("results/distance.pdf") 
+pdf("results/pca_distance.pdf") 
 fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
 dev.off() 
 
@@ -93,6 +91,17 @@ dev.off()
 
 
 data <- read_csv('./results/student_quantile.csv')
+data <- as.data.frame(data)
+distance_data <- data[,2:ncol(data)]
+rownames(distance_data) <- data$name
+distance <- get_dist(distance_data)
+
+pdf("results/quantile_distance.pdf") 
+fviz_dist(distance, gradient = list(low = "#00AFBB", mid = "white", high = "#FC4E07"))
+dev.off() 
+
+
+
 yaw_mean <- data %>% select(ends_with('sd') & starts_with('yaw'))
 yaw_mean$name <- data$name
 long <- yaw_mean %>% pivot_longer(!name, names_to = "quantile", values_to = "count")
