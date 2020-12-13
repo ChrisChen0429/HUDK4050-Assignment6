@@ -13,7 +13,8 @@ pca <- prcomp(pca_data[,2:9], center = TRUE,scale. = TRUE)
 
 ## result
 summary(pca)
-pca$rotation
+rotation <- as.data.frame(pca$rotation)
+write_csv(as.data.frame(pca$rotation),'./results/PCA_rotation.csv')
 
 
 ## visualization
