@@ -51,7 +51,7 @@ Silhouette <- fviz_nbclust(kmeans_data, kmeans, method = "silhouette",k.max=8) +
 #Gap <- fviz_nbclust(kmeans_data, kmeans,  method = "gap_stat",k.max=8)+
 #  labs(subtitle = "Gap statistic method")
 
-pdf("results/cv-withoutroll.pdf") 
+pdf("results/cv-withoutyaw.pdf") 
 ggarrange(Elow, Silhouette,
           #Gap, 
           ncol = 2, nrow = 1)
@@ -88,7 +88,7 @@ Silhouette <- fviz_nbclust(kmeans_data, kmeans, method = "silhouette",k.max=8) +
 #Gap <- fviz_nbclust(kmeans_data, kmeans,  method = "gap_stat",k.max=8)+
 #  labs(subtitle = "Gap statistic method")
 
-pdf("results/quant-cv-roll.pdf") 
+pdf("results/quant-cv.pdf") 
 ggarrange(Elow, Silhouette,
           #Gap, 
           ncol = 2, nrow = 1)
